@@ -14,7 +14,7 @@ import {
   import styles from "../../../styles/Token.module.css";
   import { Signer } from "ethers";
   import newSmartWallet from "../../../components/SmartWallet/SmartWallet";
-  import SmartWalletConnected from "../../../components/SmartWallet/SmartWalletConnected";
+  import Navbar from "../../../components/Navbar/Navbar";
   
   
   export default function TokenPage({ nft, contractMetadata }) {
@@ -48,7 +48,7 @@ import {
   
     return (
       <>
-        
+        <Navbar signer={signer} />
         
           <div className={styles.container}>
             <div className={styles.metadataContainer}>
@@ -57,6 +57,7 @@ import {
                 className={styles.image}
               />
             </div>
+            
   
             <div className={styles.listingContainer}>
               {contractMetadata && (
@@ -70,16 +71,6 @@ import {
               )}
               <h1 className={styles.title}>{nft.metadata.name}</h1>
               <p className={styles.collectionName}>Token ID #{nft.metadata.id}</p>
-              {smartWalletAddress ? (
-                <>
-                <SmartWalletConnected signer={signer} />
-                
-                </>
-              ) : (
-                <div className={styles.btnContainer}>
-                  <p>Loading...</p>
-                </div>
-              )}
             </div>
           </div>
         

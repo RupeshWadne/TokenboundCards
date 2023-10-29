@@ -71,7 +71,10 @@ import {
               <h1 className={styles.title}>{nft.metadata.name}</h1>
               <p className={styles.collectionName}>Token ID #{nft.metadata.id}</p>
               {smartWalletAddress ? (
+                <>
                 <SmartWalletConnected signer={signer} />
+                
+                </>
               ) : (
                 <div className={styles.btnContainer}>
                   <p>Loading...</p>
